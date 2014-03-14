@@ -1,5 +1,6 @@
 #!/src/bin/python
 PI=3.1415926535897931159979634685441852
+import sys
 
 def aproximacion(n):
   if(n!=0):
@@ -13,12 +14,18 @@ def aproximacion(n):
    pi=suma/n
    return pi
      
-n= int(raw_input('Introduce el numero de intervalos: '))
-m=int(raw_input('Introduce el numero de veces que quiera que se repita la funcion: '))
+n= int(sys.argv[1])
+m=int(sys.argv[2])
 l=[]
-print aproximacion(n)
+
 for j in range(1, m+1):
   pi=aproximacion(j*m)
   l=l+[pi]
 print l
 
+ 
+for z in range(0, m):
+  npi=l[z]
+  dif=PI-npi
+  print ' PI35DT: %.35f lista: %f PI35DT-lisya: %f ' % (PI,npi,dif)
+  
